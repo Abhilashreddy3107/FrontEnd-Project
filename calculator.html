@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Calculator</title>
+</head>
+<body>
+    <ul class="nav">
+        <a href="home.html"><li>Home</li></a>
+        <a href="calculator.html" class="activenav"><li>Calculator</li></a>
+        <a href="signup.html"><li>Signup</li></a>
+    </ul>
+
+    <input type="text" placeholder="Calculate" id="Calculate">
+    <br><br><br>
+
+    <input type="button" value="9" class="nos col1" onclick="appendCharacter('9')">
+    <input type="button" value="8" class="nos" onclick="appendCharacter('8')">
+    <input type="button" value="7" class="nos" onclick="appendCharacter('7')">
+    
+    <input type="button" value="+" class="operators col1" onclick="appendCharacter('+')">
+    <input type="button" value="-" class="operators" onclick="appendCharacter('-')">
+    <input type="button" value="=" class="operators" onclick="evaluateExpression()">
+    <input type="button" value="CE" id="CE" onclick="clearEntry()">
+    <br><br>
+    
+    <input type="button" value="6" class="nos col1" onclick="appendCharacter('6')">
+    <input type="button" value="5" class="nos" onclick="appendCharacter('5')">
+    <input type="button" value="4" class="nos" onclick="appendCharacter('4')">
+    
+    <input type="button" value="*" class="operators col1" onclick="appendCharacter('*')">
+    <input type="button" value="/" class="operators" onclick="appendCharacter('/')">
+    <br><br>
+    
+    <input type="button" value="3" class="nos col1" onclick="appendCharacter('3')">
+    <input type="button" value="2" class="nos" onclick="appendCharacter('2')">
+    <input type="button" value="1" class="nos" onclick="appendCharacter('1')">
+    
+    <input type="button" value="%" class="operators col1" onclick="appendCharacter('%')">
+    <input type="button" value="^" class="operators" onclick="appendCharacter('**')">
+    <br><br>
+    
+    <input type="button" value="0" class="nos" id="zero" onclick="appendCharacter('0')">
+   
+    <script>
+        function appendCharacter(character) {
+            const display = document.getElementById("Calculate");
+            display.value += character;
+        }
+
+        function clearEntry() {
+            const display = document.getElementById("Calculate");
+            display.value = '';
+        }
+
+        function evaluateExpression() {
+            const display = document.getElementById("Calculate");
+            try {
+                display.value = eval(display.value);
+            } catch (error) {
+                display.value = 'Error';
+            }
+        }
+    </script>
+</body>
+</html>
